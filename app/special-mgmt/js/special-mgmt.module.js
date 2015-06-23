@@ -10,6 +10,7 @@ angular.module(
 				templateUrl: 'special-mgmt/html/special-search.html',
 				controller: 'SpecialSearchCntl',
 				resolve: {
+					// TODO initialize specials instead 
 					paginatedTableList:
 					[
 						'tables',

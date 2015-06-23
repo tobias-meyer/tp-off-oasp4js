@@ -1,40 +1,47 @@
-// TODO remove mocking
 var mockData_specials = [
 	{
 		"id": 101,
 		"modificationCounter": 1,
 		"revision": null,
-		"waiterId": "Nicht null",
 		"number": 1,
-		"specialPrice": 10,
-		"state": "OCCUPIED"
+		"specialName": "Happy Hour",
+		"offerId": 201,
+		"specialPrice": "9.99",
+		"activeFrom": "1900",
+		"activeTo": "2100",
 	},
 	{
 		"id": 102,
 		"modificationCounter": 1,
 		"revision": null,
-		"waiterId": null,
 		"number": 2,
-		"specialPrice": 20,
-		"state": "FREE"
+		"specialName": "Midnight Deals",
+		"offerId": 202,
+		"specialPrice": "19.99",
+		"activeFrom": "0000",
+		"activeTo": "0300",
 	},
 	{
 		"id": 103,
 		"modificationCounter": 1,
 		"revision": null,
-		"waiterId": null,
 		"number": 3,
-		"specialPrice": 30,
-		"state": "FREE"
+		"specialName": "Mittagstisch",
+		"offerId": 203,
+		"specialPrice": "29.95",
+		"activeFrom": "1200",
+		"activeTo": "1400",
 	},
 	{
 		"id": 104,
 		"modificationCounter": 1,
 		"revision": null,
-		"waiterId": null,
 		"number": 4,
-		"specialPrice": 40,
-		"state": "ICH BIN ES"
+		"specialName": "Early Bird",
+		"offerId": 204,
+		"specialPrice": "39.99",
+		"activeFrom": "0600",
+		"activeTo": "0700",
 	}
 ];
 
@@ -43,6 +50,21 @@ angular.module('app.special-mgmt')
 	'use strict';
 	var selectedSpecial = function () {
 		return $scope.selectedItems && $scope.selectedItems.length ? $scope.selectedItems[0] : undefined;
+	};
+
+	var loadOffers = function () {
+		// TODO load offers
+		calculateSavings();
+	};
+
+	var calculateSavings = function () {
+		// TODO add original prices
+		// TODO calc savings
+	};
+
+	var calculateStatus = function () {
+		// TODO add original prices
+		// TODO calc savings
 	};
 
 	$scope.openEditDialog = function (specialRow) {
@@ -94,7 +116,7 @@ angular.module('app.special-mgmt')
 
 	$scope.buttonDefs = [
 		{
-			label: 'Edit...',
+			label: 'Edit Special',
 			onClick: function () {
 				$scope.openEditDialog(selectedSpecial());
 			},
@@ -103,49 +125,25 @@ angular.module('app.special-mgmt')
 			}
 		},
 		{
-			label: 'Reserve',
+			label: 'Create New Special',
 			onClick: function () {
-				globalSpinner.decorateCallOfFunctionReturningPromise(function () {
-					return tables.reserve(selectedSpecial()).then($scope.reloadSpecials);
-				});
+				// TODO initialize Details dialog
+				// $scope.openEditDialog();
 			},
 			isActive: function () {
-				return selectedSpecial() && selectedSpecial().state === 'FREE';
+				return true;
 			}
 		},
 		{
-			label: 'Cancel Reservation',
+			label: 'Delete Special',
 			onClick: function () {
-				globalSpinner.decorateCallOfFunctionReturningPromise(function () {
-					return tables.cancelReservation(selectedSpecial()).then($scope.reloadSpecials);
-				});
+				// TODO connect to service
+				//specials.deleteSpecial(selectedSpecial().id);
 			},
 			isActive: function () {
-				return selectedSpecial() && selectedSpecial().state === 'RESERVED';
+				return selectedSpecial();
 			}
 		},
-		{
-			label: 'Occupy',
-			onClick: function () {
-				globalSpinner.decorateCallOfFunctionReturningPromise(function () {
-					return tables.occupy(selectedSpecial()).then($scope.reloadSpecials);
-				});
-			},
-			isActive: function () {
-				return selectedSpecial() && (selectedSpecial().state === 'RESERVED' || selectedSpecial().state === 'FREE');
-			}
-		},
-		{
-			label: 'Free',
-			onClick: function () {
-				globalSpinner.decorateCallOfFunctionReturningPromise(function () {
-					return tables.free(selectedSpecial()).then($scope.reloadSpecials);
-				});
-			},
-			isActive: function () {
-				return selectedSpecial() && selectedSpecial().state === 'OCCUPIED';
-			}
-		}
 	];
 
 
