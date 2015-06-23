@@ -14,7 +14,8 @@
         "oasp/oasp-i18n",
         "offer-mgmt",
         "sales-mgmt",
-        "table-mgmt"
+        "table-mgmt",
+        "special-mgmt"
     ],
     "appBuild": true,
     "proxy": "http://localhost:8081",
