@@ -48,7 +48,7 @@ angular.module('app.special-mgmt')
 	$scope.gridOptions = {
 		// TODO remove mocking
         //     data: paginatedTableList.result
-		data: specials.mockdata(true)
+		data: specials.mockdata()
 	};
 
 
@@ -59,7 +59,7 @@ angular.module('app.special-mgmt')
 			paginatedTableList = res;
 			// TODO remove mocking
 			//$scope.gridOptions.data = paginatedTableList.result;
-			$scope.gridOptions.data = specials.mockdata(true);
+			$scope.gridOptions.data = specials.mockdata();
 		});
 	};
 
