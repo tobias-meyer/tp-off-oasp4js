@@ -1,6 +1,7 @@
-// TODO remove
 angular.module('app.special-mgmt').factory('specials', function (tableManagementRestService) {
     'use strict';
+    var paginatedSpecials = {};
+	// TODO remove
     var paginatedTables = {};
     return {
 		mockdata: function () {
@@ -99,8 +100,8 @@ angular.module('app.special-mgmt').factory('specials', function (tableManagement
 		},
         getPaginatedSpecials: function (pagenumber, pagesize) {
             return tableManagementRestService.getPaginatedTables(pagenumber, pagesize).then(function (response) {
-                angular.copy(response.data, paginatedTables);
-                return paginatedTables;
+                angular.copy(response.data, paginatedSpecials);
+                return paginatedSpecials;
             });
         },
 		//
