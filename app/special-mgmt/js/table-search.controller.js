@@ -1,52 +1,5 @@
-var mockData_specials = [
-	{
-		"id": 101,
-		"modificationCounter": 1,
-		"revision": null,
-		"number": 1,
-		"specialName": "Happy Hour",
-		"offerId": 201,
-		"specialPrice": "9.99",
-		"activeFrom": "1900",
-		"activeTo": "2100",
-	},
-	{
-		"id": 102,
-		"modificationCounter": 1,
-		"revision": null,
-		"number": 2,
-		"specialName": "Midnight Deals",
-		"offerId": 202,
-		"specialPrice": "19.99",
-		"activeFrom": "0000",
-		"activeTo": "0300",
-	},
-	{
-		"id": 103,
-		"modificationCounter": 1,
-		"revision": null,
-		"number": 3,
-		"specialName": "Mittagstisch",
-		"offerId": 203,
-		"specialPrice": "29.95",
-		"activeFrom": "1200",
-		"activeTo": "1400",
-	},
-	{
-		"id": 104,
-		"modificationCounter": 1,
-		"revision": null,
-		"number": 4,
-		"specialName": "Early Bird",
-		"offerId": 204,
-		"specialPrice": "39.99",
-		"activeFrom": "0600",
-		"activeTo": "0700",
-	}
-];
-
 angular.module('app.special-mgmt')
-    .controller('SpecialSearchCntl', function ($scope, tables, paginatedTableList, $modal, globalSpinner, offers, sales, appContext, oaspSecurityService) {
+    .controller('SpecialSearchCntl', function ($scope, tables, paginatedTableList, $modal, globalSpinner, offers, sales, appContext, oaspSecurityService, specials) {
 	'use strict';
 
 
@@ -65,21 +18,6 @@ angular.module('app.special-mgmt')
 
 	var selectedSpecial = function () {
 		return $scope.selectedItems && $scope.selectedItems.length ? $scope.selectedItems[0] : undefined;
-	};
-
-	var loadOffers = function () {
-		// TODO load offers
-		calculateSavings();
-	};
-
-	var calculateSavings = function () {
-		// TODO add original prices
-		// TODO calc savings
-	};
-
-	var calculateStatus = function () {
-		// TODO add original prices
-		// TODO calc savings
 	};
 
 	$scope.openEditDialog = function (specialRow) {
@@ -110,7 +48,7 @@ angular.module('app.special-mgmt')
 	$scope.gridOptions = {
 		// TODO remove mocking
         //     data: paginatedTableList.result
-		data: mockData_specials
+		data: specials.mockdata(true)
 	};
 
 
@@ -121,7 +59,7 @@ angular.module('app.special-mgmt')
 			paginatedTableList = res;
 			// TODO remove mocking
 			//$scope.gridOptions.data = paginatedTableList.result;
-			$scope.gridOptions.data = mockData_specials;
+			$scope.gridOptions.data = specials.mockdata(true);
 		});
 	};
 
