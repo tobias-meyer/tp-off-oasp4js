@@ -36,7 +36,7 @@ angular.module('app.special-mgmt')
 							console.log("All Offers: " + JSON.stringify(response));
 							return response;
 						}
-					);
+						);
 				},
 				currentOrder: function () {
 					return sales.loadOrderForTable(specialRow.id);
@@ -53,20 +53,17 @@ angular.module('app.special-mgmt')
 
 
 	$scope.gridOptions = {
-		// TODO remove mocking
-        //     data: paginatedSpecialList.result
-		data: specials.mockdata()
+		data: paginatedSpecialList.result
 	};
 
 
 	$scope.reloadSpecials = function () {
-		tables.getPaginatedTables($scope.currentPage, $scope.numPerPage).then(function (paginatedTables) {
-			return paginatedTables;
+		specials.getPaginatedSpecials($scope.currentPage, $scope.numPerPage).then(function (paginatedSpecials) {
+			return paginatedSpecials;
 		}).then(function (res) {
 			paginatedSpecialList = res;
-			// TODO remove mocking
-			//$scope.gridOptions.data = paginatedSpecialList.result;
-			$scope.gridOptions.data = specials.mockdata();
+			console.log("Paginated Special List: " + JSON.stringify(paginatedSpecialList));
+			$scope.gridOptions.data = paginatedSpecialList.result;
 		});
 	};
 

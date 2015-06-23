@@ -1,69 +1,19 @@
-angular.module('app.special-mgmt').factory('specials', function (tableManagementRestService) {
+// Visual Studio Code Typings and autocompletion
+/// <reference path="../../../typings/angularjs/angular.d.ts"/>
+angular.module('app.special-mgmt').factory('specials', function (specialManagementRestService) {
     'use strict';
     var paginatedSpecials = {};
 	// TODO remove
     var paginatedTables = {};
+	
     return {
-		mockdata: function () {
-			var self = this;
-			return self.addOffers(
-				self.calculateStatus(
-				[
-					{
-						"id": 101,
-						"modificationCounter": 1,
-						"revision": null,
-						"number": 1,
-						"specialName": "Happy Hour",
-						"offerId": 201,
-						"specialPrice": "9.99",
-						"activeFrom": 19,
-						"activeTo": 21,
-					},
-					{
-						"id": 102,
-						"modificationCounter": 1,
-						"revision": null,
-						"number": 2,
-						"specialName": "Midnight Deals",
-						"offerId": 202,
-						"specialPrice": "19.99",
-						"activeFrom": 23,
-						"activeTo": 3,
-					},
-					{
-						"id": 103,
-						"modificationCounter": 1,
-						"revision": null,
-						"number": 3,
-						"specialName": "Mittagstisch",
-						"offerId": 203,
-						"specialPrice": "29.95",
-						"activeFrom": 12,
-						"activeTo": 14,
-					},
-					{
-						"id": 104,
-						"modificationCounter": 1,
-						"revision": null,
-						"number": 4,
-						"specialName": "Early Bird",
-						"offerId": 204,
-						"specialPrice": "39.99",
-						"activeFrom": 6,
-						"activeTo": 7,
-					}
-				]
-				)
-				);
-		},
 		isActive: function (special) {
 			var now = new Date();
 			if (special.activeFrom < special.activeTo) {
-				return now.getHours() > special.activeFrom && now.getHours() > special.activeTo;
+				return now.getHours() > special.activeFrom && now.getHours() < special.activeTo;
 			} else {
 				// around midnight
-				return now.getHours() > special.activeFrom || now.getHours() > special.activeTo;
+				return now.getHours() > special.activeFrom || now.getHours() < special.activeTo;
 			}
 		},
 		calculateStatus: function (paginatedSpecialList) {
@@ -99,8 +49,13 @@ angular.module('app.special-mgmt').factory('specials', function (tableManagement
 
 		},
         getPaginatedSpecials: function (pagenumber, pagesize) {
-            return tableManagementRestService.getPaginatedTables(pagenumber, pagesize).then(function (response) {
+			var self = this;
+		
+            return specialManagementRestService.getPaginatedSpecials(pagenumber, pagesize).then(function (response) {
                 angular.copy(response.data, paginatedSpecials);
+				// TODO use defer?
+				paginatedSpecials.result = self.addOffers(self.calculateStatus(paginatedSpecials.result));
+				console.log("Paginated Specials: " + JSON.stringify(paginatedSpecials));
                 return paginatedSpecials;
             });
         },
@@ -108,37 +63,37 @@ angular.module('app.special-mgmt').factory('specials', function (tableManagement
 		// TODO remove/refactor copypasted functions
 		//
         getPaginatedTables: function (pagenumber, pagesize) {
-            return tableManagementRestService.getPaginatedTables(pagenumber, pagesize).then(function (response) {
+            return specialManagementRestService.getPaginatedTables(pagenumber, pagesize).then(function (response) {
                 angular.copy(response.data, paginatedTables);
                 return paginatedTables;
             });
         },
         loadTable: function (tableId) {
-            return tableManagementRestService.getTable(tableId).then(function (response) {
+            return specialManagementRestService.getTable(tableId).then(function (response) {
                 return response.data;
             });
         },
         reserve: function (table) {
             table.state = 'RESERVED';
-            return tableManagementRestService.saveTable(table).then(function () {
+            return specialManagementRestService.saveTable(table).then(function () {
 				// do nothing
             });
         },
         free: function (table) {
             table.state = 'FREE';
-            return tableManagementRestService.saveTable(table).then(function () {
+            return specialManagementRestService.saveTable(table).then(function () {
 				// do nothing
             });
         },
         occupy: function (table) {
             table.state = 'OCCUPIED';
-            return tableManagementRestService.saveTable(table).then(function () {
+            return specialManagementRestService.saveTable(table).then(function () {
 				// do nothing
             });
         },
         cancelReservation: function (table) {
             table.state = 'FREE';
-            return tableManagementRestService.saveTable(table).then(function () {
+            return specialManagementRestService.saveTable(table).then(function () {
 				// do nothing
             });
         }
