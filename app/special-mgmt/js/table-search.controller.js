@@ -45,8 +45,8 @@ angular.module('app.special-mgmt')
 
 	$scope.openEditDialog = function (specialRow) {
 		$modal.open({
-			templateUrl: 'special-mgmt/html/table-details.html',
-			controller: 'TableDetailsCntl',
+			templateUrl: 'special-mgmt/html/special-details.html',
+			controller: 'SpecialDetailsCntl',
 			resolve: {
 				tableDetails: function () {
 					return tables.loadTable(specialRow.id);
