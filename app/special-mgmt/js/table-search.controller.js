@@ -62,7 +62,6 @@ angular.module('app.special-mgmt')
 			return paginatedSpecials;
 		}).then(function (res) {
 			paginatedSpecialList = res;
-			console.log("Paginated Special List: " + JSON.stringify(paginatedSpecialList));
 			$scope.gridOptions.data = paginatedSpecialList.result;
 		});
 	};

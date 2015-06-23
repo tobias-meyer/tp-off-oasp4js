@@ -53,7 +53,6 @@ angular.module('app.special-mgmt').factory('specials', function (specialManageme
                 angular.copy(response.data, paginatedSpecials);
 				// TODO use defer?
 				paginatedSpecials.result = self.addOffers(self.calculateStatus(paginatedSpecials.result));
-				console.log("Paginated Specials: " + JSON.stringify(paginatedSpecials));
                 return paginatedSpecials;
             });
         },
@@ -65,29 +64,5 @@ angular.module('app.special-mgmt').factory('specials', function (specialManageme
                 return response.data;
             });
         },
-        reserve: function (table) {
-            table.state = 'RESERVED';
-            return specialManagementRestService.saveTable(table).then(function () {
-				// do nothing
-            });
-        },
-        free: function (table) {
-            table.state = 'FREE';
-            return specialManagementRestService.saveTable(table).then(function () {
-				// do nothing
-            });
-        },
-        occupy: function (table) {
-            table.state = 'OCCUPIED';
-            return specialManagementRestService.saveTable(table).then(function () {
-				// do nothing
-            });
-        },
-        cancelReservation: function (table) {
-            table.state = 'FREE';
-            return specialManagementRestService.saveTable(table).then(function () {
-				// do nothing
-            });
-        }
     };
 });
