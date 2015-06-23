@@ -5,7 +5,8 @@ angular.module('app.special-mgmt').factory('specials', function (tableManagement
     return {
 		mockdata: function () {
 			var self = this;
-			return self.calculateStatus(
+			return self.addOffers(
+				self.calculateStatus(
 				[
 					{
 						"id": 101,
@@ -52,23 +53,49 @@ angular.module('app.special-mgmt').factory('specials', function (tableManagement
 						"activeTo": 7,
 					}
 				]
+				)
 				);
 		},
 		isActive: function (special) {
 			var now = new Date();
 			if (special.activeFrom < special.activeTo) {
-				return now.getHours() > special.activeFrom && now.getHours() > special.activeTo
+				return now.getHours() > special.activeFrom && now.getHours() > special.activeTo;
 			} else {
 				// around midnight
-				return now.getHours() > special.activeFrom || now.getHours() > special.activeTo
+				return now.getHours() > special.activeFrom || now.getHours() > special.activeTo;
 			}
 		},
-		calculateStatus: function (paginatedTableList) {
+		calculateStatus: function (paginatedSpecialList) {
 			var self = this;
-			return paginatedTableList.filter(function (current) {
+			return paginatedSpecialList.filter(function (current) {
 				current.activeStatus = self.isActive(current) ? "Active" : "Inactive";
 				return current;
 			});
+		},
+		addOffers: function (paginatedSpecialList) {
+			
+			// TODO read actual offers
+			var offer = { "id": 1, 
+				"modificationCounter": 1, 
+				"revision": null, 
+				"name": null, 
+				"description": "Schnitzel-Menü", 
+				"number": null, 
+				"mealId": 1, 
+				"drinkId": 10, 
+				"sideDishId": 5, 
+				"state": "NORMAL", 
+				"price": "26.99" 
+				};
+
+			return paginatedSpecialList.filter(function (current) {
+				current.specialOffer = offer.description;
+				current.originalPrice = offer.price;
+				current.savings = (current.originalPrice - current.specialPrice).toFixed(2);
+				current.savingsPercentage = ((current.savings / current.originalPrice) *100).toFixed(0) + " %";
+				return current;
+			});
+
 		},
 		//
 		// TODO remove/refactor copypasted functions
@@ -87,21 +114,25 @@ angular.module('app.special-mgmt').factory('specials', function (tableManagement
         reserve: function (table) {
             table.state = 'RESERVED';
             return tableManagementRestService.saveTable(table).then(function () {
+				// do nothing
             });
         },
         free: function (table) {
             table.state = 'FREE';
             return tableManagementRestService.saveTable(table).then(function () {
+				// do nothing
             });
         },
         occupy: function (table) {
             table.state = 'OCCUPIED';
             return tableManagementRestService.saveTable(table).then(function () {
+				// do nothing
             });
         },
         cancelReservation: function (table) {
             table.state = 'FREE';
             return tableManagementRestService.saveTable(table).then(function () {
+				// do nothing
             });
         }
     };

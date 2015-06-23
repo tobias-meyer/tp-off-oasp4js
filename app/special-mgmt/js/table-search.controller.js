@@ -29,7 +29,14 @@ angular.module('app.special-mgmt')
 					return tables.loadTable(specialRow.id);
 				},
 				allOffers: function () {
-					return offers.loadAllOffers();
+					return offers
+						.loadAllOffers()
+						.then(
+						function (response) {
+							console.log("All Offers: " + JSON.stringify(response));
+							return response;
+						}
+					);
 				},
 				currentOrder: function () {
 					return sales.loadOrderForTable(specialRow.id);
