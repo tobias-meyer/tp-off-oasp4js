@@ -1,4 +1,4 @@
-angular.module('app.special-mgmt').factory('tableManagementRestService', function ($http, currentContextPath) {
+angular.module('app.special-mgmt').factory('specialManagementRestService', function ($http, currentContextPath) {
     'use strict';
 
     var servicePath = currentContextPath.get() + 'services/rest/tablemanagement/v1';

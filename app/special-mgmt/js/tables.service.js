@@ -97,6 +97,12 @@ angular.module('app.special-mgmt').factory('specials', function (tableManagement
 			});
 
 		},
+        getPaginatedSpecials: function (pagenumber, pagesize) {
+            return tableManagementRestService.getPaginatedTables(pagenumber, pagesize).then(function (response) {
+                angular.copy(response.data, paginatedTables);
+                return paginatedTables;
+            });
+        },
 		//
 		// TODO remove/refactor copypasted functions
 		//

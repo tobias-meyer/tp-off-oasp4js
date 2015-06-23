@@ -1,5 +1,5 @@
 angular.module('app.special-mgmt')
-    .controller('SpecialSearchCntl', function ($scope, tables, paginatedTableList, $modal, globalSpinner, offers, sales, appContext, oaspSecurityService, specials) {
+    .controller('SpecialSearchCntl', function ($scope, tables, paginatedSpecialList, $modal, globalSpinner, offers, sales, appContext, oaspSecurityService, specials) {
 	'use strict';
 
 
@@ -47,14 +47,14 @@ angular.module('app.special-mgmt')
 
 	$scope.selectedItems = [];
 	$scope.maxSize = 5;
-	$scope.totalItems = paginatedTableList.pagination.total;
-	$scope.numPerPage = paginatedTableList.pagination.size;
-	$scope.currentPage = paginatedTableList.pagination.page;
+	$scope.totalItems = paginatedSpecialList.pagination.total;
+	$scope.numPerPage = paginatedSpecialList.pagination.size;
+	$scope.currentPage = paginatedSpecialList.pagination.page;
 
 
 	$scope.gridOptions = {
 		// TODO remove mocking
-        //     data: paginatedTableList.result
+        //     data: paginatedSpecialList.result
 		data: specials.mockdata()
 	};
 
@@ -63,9 +63,9 @@ angular.module('app.special-mgmt')
 		tables.getPaginatedTables($scope.currentPage, $scope.numPerPage).then(function (paginatedTables) {
 			return paginatedTables;
 		}).then(function (res) {
-			paginatedTableList = res;
+			paginatedSpecialList = res;
 			// TODO remove mocking
-			//$scope.gridOptions.data = paginatedTableList.result;
+			//$scope.gridOptions.data = paginatedSpecialList.result;
 			$scope.gridOptions.data = specials.mockdata();
 		});
 	};
