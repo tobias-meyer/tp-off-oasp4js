@@ -71,21 +71,18 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 					return response;
 				});
         },
+        deleteSpecial: function (id) {
+            return $http.delete(servicePath + '/special/' + id);
+        },
+        createSpecial: function (id, special) {
+            return $http.put(servicePath + '/special/' + id, special);
+        },
+        saveSpecial: function (special) {
+            return $http.post(servicePath + '/special/', special);
+        },
 		// TODO refactor / remove
         getTable: function (id) {
             return $http.get(servicePath + '/table/' + id);
         },
-        createTable: function (id, table) {
-            return $http.put(servicePath + '/table/' + id, table);
-        },
-        deleteTable: function (id) {
-            return $http.delete(servicePath + '/table/' + id);
-        },
-        saveTable: function (table) {
-            return $http.post(servicePath + '/table/', table);
-        },
-        isTableReleasable: function (id) {
-            return $http.get(servicePath + '/table/' + id + '/istablereleasable/');
-        }
     };
 });

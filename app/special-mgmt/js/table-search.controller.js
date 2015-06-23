@@ -93,8 +93,8 @@ angular.module('app.special-mgmt')
 		{
 			label: 'Delete Special',
 			onClick: function () {
-				// TODO connect to service
-				//specials.deleteSpecial(selectedSpecial().id);
+				specials.deleteSpecial(selectedSpecial().id);
+				$scope.reloadSpecials();
 			},
 			isActive: function () {
 				return selectedSpecial();

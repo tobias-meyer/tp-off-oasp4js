@@ -56,6 +56,11 @@ angular.module('app.special-mgmt').factory('specials', function (specialManageme
                 return paginatedSpecials;
             });
         },
+        deleteSpecial: function (specialId) {
+            return specialManagementRestService.deleteSpecial(specialId).then(function (response) {
+                // TODO check status and display confirmation or error
+            });
+        },
 		//
 		// TODO remove/refactor copypasted functions
 		//
