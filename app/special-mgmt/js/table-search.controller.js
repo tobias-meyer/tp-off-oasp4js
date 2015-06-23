@@ -4,8 +4,9 @@ var mockData_specials = [
 		"id": 101,
 		"modificationCounter": 1,
 		"revision": null,
-		"waiterId": null,
+		"waiterId": "Nicht null",
 		"number": 1,
+		"specialPrice": 10,
 		"state": "OCCUPIED"
 	},
 	{
@@ -14,6 +15,7 @@ var mockData_specials = [
 		"revision": null,
 		"waiterId": null,
 		"number": 2,
+		"specialPrice": 20,
 		"state": "FREE"
 	},
 	{
@@ -22,6 +24,7 @@ var mockData_specials = [
 		"revision": null,
 		"waiterId": null,
 		"number": 3,
+		"specialPrice": 30,
 		"state": "FREE"
 	},
 	{
@@ -30,6 +33,7 @@ var mockData_specials = [
 		"revision": null,
 		"waiterId": null,
 		"number": 4,
+		"specialPrice": 40,
 		"state": "ICH BIN ES"
 	}
 ];
@@ -40,8 +44,6 @@ angular.module('app.special-mgmt')
 	var selectedSpecial = function () {
 		return $scope.selectedItems && $scope.selectedItems.length ? $scope.selectedItems[0] : undefined;
 	};
-
-	$scope.test = "Hallo Test: Special Controller!";
 
 	$scope.openEditDialog = function (specialRow) {
 		$modal.open({
