@@ -20,18 +20,6 @@ angular.module(
 								}
 							);
 						}
-					],
-					// TODO remove
-					paginatedTableList:
-					[
-						'tables',
-						function (tables) {
-							return tables.getPaginatedTables(1, 4).then(
-								function (paginatedTables) {
-									return paginatedTables;
-								}
-							);
-						}
 					]
 				}
 			}

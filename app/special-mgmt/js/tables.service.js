@@ -3,8 +3,6 @@
 angular.module('app.special-mgmt').factory('specials', function (specialManagementRestService) {
     'use strict';
     var paginatedSpecials = {};
-	// TODO remove
-    var paginatedTables = {};
 	
     return {
 		isActive: function (special) {
@@ -62,12 +60,6 @@ angular.module('app.special-mgmt').factory('specials', function (specialManageme
 		//
 		// TODO remove/refactor copypasted functions
 		//
-        getPaginatedTables: function (pagenumber, pagesize) {
-            return specialManagementRestService.getPaginatedTables(pagenumber, pagesize).then(function (response) {
-                angular.copy(response.data, paginatedTables);
-                return paginatedTables;
-            });
-        },
         loadTable: function (tableId) {
             return specialManagementRestService.getTable(tableId).then(function (response) {
                 return response.data;

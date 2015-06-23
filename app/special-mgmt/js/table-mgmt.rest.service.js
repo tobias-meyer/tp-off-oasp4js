@@ -75,16 +75,6 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
         getTable: function (id) {
             return $http.get(servicePath + '/table/' + id);
         },
-        getPaginatedTables: function (pagenumber, pagesize) {
-            var tableSearchCriteria = {
-                pagination: {
-                    size: pagesize,
-                    page: pagenumber,
-                    total: true
-                }
-            };
-            return $http.post(servicePath + '/table/search', tableSearchCriteria);
-        },
         createTable: function (id, table) {
             return $http.put(servicePath + '/table/' + id, table);
         },
