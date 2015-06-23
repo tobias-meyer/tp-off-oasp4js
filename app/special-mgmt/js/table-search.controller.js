@@ -46,8 +46,23 @@ var mockData_specials = [
 ];
 
 angular.module('app.special-mgmt')
-    .controller('SpecialSearchCntl', function ($scope, tables, paginatedTableList, $modal, globalSpinner, offers, sales) {
+    .controller('SpecialSearchCntl', function ($scope, tables, paginatedTableList, $modal, globalSpinner, offers, sales, appContext, oaspSecurityService) {
 	'use strict';
+
+
+	$scope.isChief = function () {
+		// TODO fix 
+		// var result = appContext.getCurrentUser().then(function (currentUser) {
+		// 	console.log("currentUser: " + JSON.stringify(currentUser));
+		// 	return currentUser.getUserName() === "chief";
+		// });
+		// 
+		// console.log("result: " + JSON.stringify(result));
+		// return result;
+		
+		return true;
+	};
+
 	var selectedSpecial = function () {
 		return $scope.selectedItems && $scope.selectedItems.length ? $scope.selectedItems[0] : undefined;
 	};
