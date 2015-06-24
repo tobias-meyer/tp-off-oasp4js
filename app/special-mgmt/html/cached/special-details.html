@@ -17,12 +17,12 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label">Applies to Offer:</label>
 				<div class="col-sm-10">
-					<ui-select name="specialOffer"  ng-model="special.specialOffer" required>
-                            <ui-select-match placeholder="Select offer...">{{$select.selected.description}}
-                            </ui-select-match>
-                            <ui-select-choices repeat="o in allOffers | filter: $select.search">
-                                <div ng-bind-html="trustAsHtml((o.description | highlight: $select.search))"></div>
-                            </ui-select-choices>
+					<ui-select name="specialOffer" ng-model="selectedOffer" on-select="selectOffer($item, $model)" required>
+						<ui-select-match placeholder="Select offer...">{{$select.selected.description}}
+						</ui-select-match>
+						<ui-select-choices repeat="o in allOffers | filter: $select.search">
+							<div ng-bind-html="trustAsHtml((o.description | highlight: $select.search))"></div>
+						</ui-select-choices>
 					</ui-select>
 				</div>
 			</div>

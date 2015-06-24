@@ -23,7 +23,7 @@ angular.module('app.special-mgmt').factory('specials', function (specialManageme
 		},
 		addOffers: function (paginatedSpecialList) {
 			
-			// TODO read actual offers
+			// TODO read actual offers and match	
 			var offer = { "id": 1, 
 				"modificationCounter": 1, 
 				"revision": null, 
@@ -41,7 +41,7 @@ angular.module('app.special-mgmt').factory('specials', function (specialManageme
 				current.specialOffer = offer.description;
 				current.originalPrice = offer.price;
 				current.savings = (current.originalPrice - current.specialPrice).toFixed(2);
-				// TODO better add percentage sign as filter
+				// TODO better add percentage sign via filter
 				current.savingsPercentage = ((current.savings / current.originalPrice) *100).toFixed(0) + " %";
 				return current;
 			});
