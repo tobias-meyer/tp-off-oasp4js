@@ -15,22 +15,16 @@ angular.module('app.special-mgmt').factory('specials',
 				return now.getHours() > special.activeFrom.getHours() && now.getHours() < special.activeTo.getHours();
 			} else {
 				// around midnight
-				return now.getHours() > special.activeFrom || now.getHours() < special.activeTo;
+				return now.getHours() > special.activeFrom.getHours() || now.getHours() < special.activeTo.getHours();
 			}
 		},
-		calculateStatus: function (paginatedSpecialList) {
-			var self = this;
-			return paginatedSpecialList.filter(function (current) {
-				current.activeStatus = self.isActive(current) ? "Active" : "Inactive";
-				return current;
-			});
-		},
 		addOffers: function (paginatedSpecialList) {
+			var self = this;
 			
 			// TODO read actual offers and match	
 			var allOffers = [];
 
-			return paginatedSpecialList.filter(function (current) {
+			return paginatedSpecialList.map(function (current) {
 				var allOffersFiltered = allOffers.filter(function(offer) { 
 					// TODO also check for id
 					return offer.description === current.specialOffer; 
@@ -55,6 +49,7 @@ angular.module('app.special-mgmt').factory('specials',
 				current.savings = (current.originalPrice - current.specialPrice).toFixed(2);
 				// TODO better add percentage sign via filter
 				current.savingsPercentage = ((current.savings / current.originalPrice) *100).toFixed(0) + " %";
+				current.activeStatus = self.isActive(current) ? "Active" : "Inactive";
 				return current;
 			});
 
@@ -65,7 +60,7 @@ angular.module('app.special-mgmt').factory('specials',
             return specialManagementRestService.getPaginatedSpecials(pagenumber, pagesize).then(function (response) {
                 angular.copy(response.data, paginatedSpecials);
 				// TODO use defer?
-				paginatedSpecials.result = self.addOffers(self.calculateStatus(paginatedSpecials.result));
+				paginatedSpecials.result = self.addOffers(paginatedSpecials.result);
                 return paginatedSpecials;
             });
         },
@@ -90,7 +85,7 @@ angular.module('app.special-mgmt').factory('specials',
 			var self = this;
 
             return specialManagementRestService.getSpecial(specialId).then(function (response) {
-				var amendedSpecial = self.addOffers(self.calculateStatus([ response.data ]));
+				var amendedSpecial = self.addOffers([ response.data ]);
 				//console.log("Amended Special: " + JSON.stringify(amendedSpecial));
                 return amendedSpecial[0];
             });
