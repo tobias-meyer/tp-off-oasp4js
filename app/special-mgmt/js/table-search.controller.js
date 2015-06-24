@@ -1,5 +1,5 @@
 angular.module('app.special-mgmt')
-    .controller('SpecialSearchCntl', function ($scope, tables, paginatedSpecialList, $modal, globalSpinner, offers, sales, appContext, oaspSecurityService, specials) {
+    .controller('SpecialSearchCntl', function ($scope, $modal, globalSpinner, specials, paginatedSpecialList, offers, appContext, oaspSecurityService) {
 	'use strict';
 
 
@@ -25,8 +25,23 @@ angular.module('app.special-mgmt')
 			templateUrl: 'special-mgmt/html/special-details.html',
 			controller: 'SpecialDetailsCntl',
 			resolve: {
-				tableDetails: function () {
-					return tables.loadTable(specialRow.id);
+				specialDetails: function () {
+					if (specialRow) {
+						return specials.loadSpecial(specialRow.id);
+					} else {
+						// create
+						return {
+							"id": null,
+							"modificationCounter": null,
+							"revision": null,
+							"number": null,
+							"specialName": null,
+							"offerId": null,
+							"specialPrice": null,
+							"activeFrom": null,
+							"activeTo": null,
+						}
+					}
 				},
 				allOffers: function () {
 					return offers
@@ -38,9 +53,6 @@ angular.module('app.special-mgmt')
 						}
 						);
 				},
-				currentOrder: function () {
-					return sales.loadOrderForTable(specialRow.id);
-				}
 			}
 		});
 	};
@@ -83,8 +95,7 @@ angular.module('app.special-mgmt')
 		{
 			label: 'Create New Special',
 			onClick: function () {
-				// TODO initialize Details dialog
-				// $scope.openEditDialog();
+				$scope.openEditDialog();
 			},
 			isActive: function () {
 				return true;

@@ -63,6 +63,7 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
                 }
             };
 			// TODO switch to correct service
+            //return $http.post(servicePath + '/special/search', tableSearchCriteria).then(
             return $http.post(servicePath + '/table/search', tableSearchCriteria).then(
 				// TODO remove mock
 				function (response) {
@@ -80,9 +81,16 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
         saveSpecial: function (special) {
             return $http.post(servicePath + '/special/', special);
         },
-		// TODO refactor / remove
-        getTable: function (id) {
-            return $http.get(servicePath + '/table/' + id);
+        getSpecial: function (id) {
+			// TODO switch to correct service
+            //return $http.get(servicePath + '/special/' + id).then(
+            return $http.get(servicePath + '/table/' + id).then(
+				function (response) {
+					// TODO remove mock
+					response.data = mockspecials[0];
+					return response;
+				}
+				);
         },
     };
 });

@@ -1,84 +1,61 @@
 <div>
     <div class="modal-header">
-        <h3 class="modal-title">Details for Special #<span data-ng-bind="table.number"></span></h3>
+        <h3 class="modal-title">Details for Special #<span data-ng-bind="special.number"></span></h3>
     </div>
     <div class="modal-body">
-        <form name="forms.tableForm" novalidate>
+		
+  
+        <form name="forms.specialForm" class="form-horizontal" role="form">
 
-            <div class="row">
-                <div class="col-md-12">
-                    <label>Status:</label>&nbsp;
-                    <span data-ng-bind="table.state"></span>
-                </div>
-            </div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Name:</label>
+				<div class="col-sm-10">
+					<input name="specialName" class="form-control" type="text" ng-model="special.specialName" ng-minlength="3" ng-maxlength="50" required />
+				</div>
+			</div>
 
-
-            <div class="page-header">
-                <h4>Order</h4>
-            </div>
-
-            <div class="row" data-ng-show="noOrderAssigned()">
-                <div class="col-md-12">
-                    <div class="alert alert-info" role="alert">
-                        No order currently assigned to this special. <a data-ng-click="assignNewOrder()">Assign a new
-                        order...</a>
-                    </div>
-                </div>
-            </div>
-            <div data-ng-show="orderAssigned()">
-                <div class="row">
-                    <div class="col-md-12">
-                        <label>State:</label>&nbsp;
-                        <span data-ng-bind="table.order.orderState"></span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <label>Order Positions:</label>&nbsp;
-                    </div>
-                    <div class="col-md-4">
-                        <ui-select ng-model="model.selected">
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Applies to Offer:</label>
+				<div class="col-sm-10">
+					<ui-select name="offerId"  ng-model="special.offerId" required>
                             <ui-select-match placeholder="Select offer...">{{$select.selected.description}}
                             </ui-select-match>
                             <ui-select-choices repeat="o in allOffers | filter: $select.search">
                                 <div ng-bind-html="trustAsHtml((o.description | highlight: $select.search))"></div>
                             </ui-select-choices>
-                        </ui-select>
-                    </div>
-                    <div class="col-md-1">
-                        <button class="btn btn-sm btn-primary" data-ng-click="addPosition(model.selected)">+Add</button>
-                        &nbsp;
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <table class="raw-table" tr-ng-grid=""
-                               selection-mode="SingleRow"
-                               enable-filtering="false"
-                               selected-items="selectedItems"
-                               items="positionsShown">
-                            <thead>
-                            <tr>
-                                <th field-name="id" display-name="Number" cell-width="7em"></th>
-                                <th field-name="offerName" display-name="Title"></th>
-                                <th field-name="state" display-name="Status"></th>
-                                <th field-name="price" display-name="Price" display-format="price:gridItem"></th>
-                                <th field-name="comment" display-name="Comment"></th>
-                            </tr>
-                            </thead>
-                        </table>
+					</ui-select>
+				</div>
+			</div>
 
-                        <button-bar button-defs="buttonDefs"></button-bar>
-                    </div>
-                </div>
-                <pagination total-items="totalItems" items-per-page="numPerPage" ng-model="currentPage" num-pages="numPages" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false"></pagination>
-            </div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Special Price:</label>
+				<div class="col-sm-10">
+					<input name="specialPrice" class="form-control" type="number" ng-model="special.specialPrice" 
+						min="0" step="0.01" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" placeholder="0,00" required />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Active From:</label>
+				<div class="col-sm-10">
+					<input name="activeFrom" class="form-control" type="time" ng-model="special.activeFrom" required />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Active Till:</label>
+				<div class="col-sm-10">
+					<input name="activeTo" class="form-control" type="time" ng-model="special.activeTo" required />
+				</div>
+			</div>
         </form>
     </div>
+	
     <div class="modal-footer">
-        <button class="btn btn-primary" data-ng-disabled="!model.order" ng-click="submit()" translate>
+        <button class="btn btn-primary" data-ng-disabled="{{!forms.specialForm.$valid}}" ng-click="submit()" translate>
             TABLE_MGMT.SUBMIT
         </button>
         <button class="btn btn-warning" ng-click="$close()" translate>TABLE_MGMT.CANCEL</button>
     </div>
+
 </div>
