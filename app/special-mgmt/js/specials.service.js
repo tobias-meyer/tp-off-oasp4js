@@ -75,9 +75,12 @@ angular.module('app.special-mgmt').factory('specials', function (specialManageme
 			}
         },
         loadSpecial: function (specialId) {
+			var self = this;
+
             return specialManagementRestService.getSpecial(specialId).then(function (response) {
-				console.log("Response: " + JSON.stringify(response));
-                return response.data;
+				var amendedSpecial = self.addOffers(self.calculateStatus([ response.data ]));
+				//console.log("Amended Special: " + JSON.stringify(amendedSpecial));
+                return amendedSpecial[0];
             });
         },
     };
