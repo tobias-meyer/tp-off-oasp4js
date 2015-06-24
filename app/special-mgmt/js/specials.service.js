@@ -1,6 +1,10 @@
 // Visual Studio Code Typings and autocompletion
 /// <reference path="../../../typings/angularjs/angular.d.ts"/>
-angular.module('app.special-mgmt').factory('specials', function (specialManagementRestService) {
+angular.module('app.special-mgmt').factory('specials', 
+	
+//[ 'offers',
+		
+	function (specialManagementRestService) {
     'use strict';
     var paginatedSpecials = {};
 	
@@ -24,20 +28,28 @@ angular.module('app.special-mgmt').factory('specials', function (specialManageme
 		addOffers: function (paginatedSpecialList) {
 			
 			// TODO read actual offers and match	
-			var offer = { "id": 1, 
-				"modificationCounter": 1, 
-				"revision": null, 
-				"name": null, 
-				"description": "Schnitzel-Menü", 
-				"number": null, 
-				"mealId": 1, 
-				"drinkId": 10, 
-				"sideDishId": 5, 
-				"state": "NORMAL", 
-				"price": "26.99" 
-				};
+			var allOffers = [];
 
 			return paginatedSpecialList.filter(function (current) {
+				var allOffersFiltered = allOffers.filter(function(offer) { 
+					// TODO also check for id
+					return offer.description === current.specialOffer; 
+				});
+        		var offer = allOffersFiltered.length > 0 ? allOffersFiltered[0] : null;
+				// TODO remove mock	
+				offer = { "id": 1, 
+					"modificationCounter": 1, 
+					"revision": null, 
+					"name": null, 
+					"description": "Schnitzel-Menü", 
+					"number": null, 
+					"mealId": 1, 
+					"drinkId": 10, 
+					"sideDishId": 5, 
+					"state": "NORMAL", 
+					"price": "26.99" 
+					};
+				
 				current.specialOffer = offer.description;
 				current.originalPrice = offer.price;
 				current.savings = (current.originalPrice - current.specialPrice).toFixed(2);
@@ -84,4 +96,8 @@ angular.module('app.special-mgmt').factory('specials', function (specialManageme
             });
         },
     };
-});
+}
+
+//]
+
+);

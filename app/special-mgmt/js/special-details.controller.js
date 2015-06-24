@@ -6,7 +6,7 @@ angular.module('app.special-mgmt').controller('SpecialDetailsCntl',
 		var allOffersFiltered = allOffers.filter(function(offer) { 
 			// TODO also check for id
 			return offer.description === $scope.special.specialOffer; 
-		})
+		});
         $scope.selectedOffer = allOffersFiltered.length > 0 ? allOffersFiltered[0] : null;
 		
         $scope.trustAsHtml = function (value) {

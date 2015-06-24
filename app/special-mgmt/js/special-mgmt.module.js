@@ -1,6 +1,6 @@
 angular.module(
 	'app.special-mgmt',
-	['ngRoute', 'app.offer-mgmt', 'app.sales-mgmt', 'app.main', 'app.specialMgmt.templates'],
+	['ngRoute', 'app.offer-mgmt', 'app.main', 'app.specialMgmt.templates'],
 	function ($routeProvider, oaspTranslationProvider) {
 		'use strict';
 		oaspTranslationProvider.enableTranslationForModule('special-mgmt');
