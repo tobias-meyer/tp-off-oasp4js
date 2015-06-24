@@ -52,7 +52,7 @@
     </div>
 	
     <div class="modal-footer">
-        <button class="btn btn-primary" data-ng-disabled="{{!forms.specialForm.$valid}}" ng-click="submit()" translate>
+        <button class="btn btn-primary" data-ng-disabled="forms.specialForm.$invalid" ng-click="submit()" translate>
             SPECIAL_MGMT.SUBMIT
         </button>
         <button class="btn btn-warning" ng-click="$close()" translate>SPECIAL_MGMT.CANCEL</button>
