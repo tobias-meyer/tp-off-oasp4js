@@ -3,7 +3,7 @@ angular.module(
 	['ngRoute', 'app.offer-mgmt', 'app.sales-mgmt', 'app.main', 'app.specialMgmt.templates'],
 	function ($routeProvider, oaspTranslationProvider) {
 		'use strict';
-		oaspTranslationProvider.enableTranslationForModule('table-mgmt');
+		oaspTranslationProvider.enableTranslationForModule('special-mgmt');
 		$routeProvider.when(
 			'/special-mgmt/special-search',
 			{

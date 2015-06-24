@@ -1,3 +1,5 @@
+// Visual Studio Code Typings and autocompletion
+/// <reference path="../../../typings/angularjs/angular.d.ts"/>
 angular.module('app.special-mgmt')
     .controller('SpecialSearchCntl', function ($scope, $modal, globalSpinner, specials, paginatedSpecialList, offers, appContext, oaspSecurityService) {
 	'use strict';
@@ -7,10 +9,9 @@ angular.module('app.special-mgmt')
 		// TODO fix 
 		// var result = appContext.getCurrentUser().then(function (currentUser) {
 		// 	console.log("currentUser: " + JSON.stringify(currentUser));
-		// 	return currentUser.getUserName() === "chief";
+		// 	return currentUser.getUserId() === "chief";
 		// });
 		// 
-		// console.log("result: " + JSON.stringify(result));
 		// return result;
 		
 		return true;
