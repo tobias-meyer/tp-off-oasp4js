@@ -14,8 +14,8 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 			"specialName": "Happy Hour",
 			"offerId": 201,
 			"specialPrice": "9.99",
-			"activeFrom": 19,
-			"activeTo": 21,
+			"activeFrom": new Date(1970, 0, 1, 19, 0, 0),
+			"activeTo": new Date(1970, 0, 1, 21, 0, 0),
 		},
 		{
 			"id": 102,
@@ -25,8 +25,8 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 			"specialName": "Midnight Deals",
 			"offerId": 202,
 			"specialPrice": "19.99",
-			"activeFrom": 23,
-			"activeTo": 3,
+			"activeFrom": new Date(1970, 0, 1, 23, 0, 0),
+			"activeTo": new Date(1970, 0, 1, 3, 0, 0),
 		},
 		{
 			"id": 103,
@@ -36,8 +36,8 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 			"specialName": "Mittagstisch",
 			"offerId": 203,
 			"specialPrice": "29.95",
-			"activeFrom": 12,
-			"activeTo": 14,
+			"activeFrom": new Date(1970, 0, 1, 12, 0, 0),
+			"activeTo": new Date(1970, 0, 1, 14, 0, 0),
 		},
 		{
 			"id": 104,
@@ -47,8 +47,8 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 			"specialName": "Early Bird",
 			"offerId": 204,
 			"specialPrice": "39.99",
-			"activeFrom": 6,
-			"activeTo": 7,
+			"activeFrom": new Date(1970, 0, 1, 6, 0, 0),
+			"activeTo": new Date(1970, 0, 1, 7, 0, 0),
 		}
 				]
 

@@ -8,7 +8,7 @@ angular.module('app.special-mgmt').factory('specials', function (specialManageme
 		isActive: function (special) {
 			var now = new Date();
 			if (special.activeFrom < special.activeTo) {
-				return now.getHours() > special.activeFrom && now.getHours() < special.activeTo;
+				return now.getHours() > special.activeFrom.getHours() && now.getHours() < special.activeTo.getHours();
 			} else {
 				// around midnight
 				return now.getHours() > special.activeFrom || now.getHours() < special.activeTo;
@@ -41,6 +41,7 @@ angular.module('app.special-mgmt').factory('specials', function (specialManageme
 				current.specialOffer = offer.description;
 				current.originalPrice = offer.price;
 				current.savings = (current.originalPrice - current.specialPrice).toFixed(2);
+				// TODO better add percentage sign as filter
 				current.savingsPercentage = ((current.savings / current.originalPrice) *100).toFixed(0) + " %";
 				return current;
 			});
