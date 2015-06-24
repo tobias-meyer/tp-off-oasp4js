@@ -81,10 +81,13 @@ angular.module('app.special-mgmt').factory('specials',
 			loadSpecial: function (specialId) {
 				var self = this;
 
-				return specialManagementRestService.getSpecial(specialId).then(function (response) {
-					var amendedSpecial = self.addOffers([response.data]);
-					//console.log("Amended Special: " + JSON.stringify(amendedSpecial));
-					return amendedSpecial[0];
+				return specialManagementRestService.getSpecial(specialId).
+					then(function (response) {
+						// wrap in list
+					return self.addOffers([response.data]);
+				}).then(function (specialAsList) {
+					// unwrap list
+					return specialAsList[0];
 				});
 			},
 		};
