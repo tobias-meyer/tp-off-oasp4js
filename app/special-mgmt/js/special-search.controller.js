@@ -49,7 +49,7 @@ angular.module('app.special-mgmt')
 						.loadAllOffers()
 						.then(
 						function (response) {
-							console.log("All Offers: " + JSON.stringify(response));
+							//console.log("All Offers: " + JSON.stringify(response));
 							return response;
 						}
 						);
