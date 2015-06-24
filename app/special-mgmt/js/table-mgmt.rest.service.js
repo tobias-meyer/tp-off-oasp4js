@@ -2,8 +2,8 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
     'use strict';
 
     // TODO change path
-	//	var servicePath = currentContextPath.get() + 'services/rest/tablemanagement/v1';
-	var servicePath = currentContextPath.get() + 'services/rest/specialmanagement/v1';
+	// var servicePath = currentContextPath.get() + 'services/rest/specialmanagement/v1';
+	var servicePath = currentContextPath.get() + 'services/rest/tablemanagement/v1';
 
 	var mockpagination = { "size": 4, "page": 1, "total": 4 };
 
