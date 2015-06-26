@@ -77,9 +77,6 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
         deleteSpecial: function (id) {
             return $http.delete(servicePath + '/special/' + id);
         },
-        createSpecial: function (id, special) {
-            return $http.put(servicePath + '/special/' + id, special);
-        },
         saveSpecial: function (special) {
             return $http.post(servicePath + '/special/', special);
         },
