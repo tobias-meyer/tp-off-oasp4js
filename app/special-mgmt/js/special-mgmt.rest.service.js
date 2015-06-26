@@ -5,8 +5,10 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 	// var servicePath = currentContextPath.get() + 'services/rest/specialmanagement/v1';
 	var servicePath = currentContextPath.get() + 'services/rest/tablemanagement/v1';
 
+	// TODO remove
 	var mockpagination = { "size": 4, "page": 1, "total": 4 };
 
+	// TODO remove
 	var mockspecials = [
 		{
 			"id": 101,
@@ -91,5 +93,17 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 				}
 				);
         },
+		getAllSpecials: function () {
+			// TODO switch to correct service
+            //return $http.get(servicePath + '/special').then(
+            return $http.get(servicePath + '/table').then(
+				function (response) {
+					// TODO remove mock
+					response.data = mockspecials;
+					return response;
+				}
+				);
+        },
+
     };
 });

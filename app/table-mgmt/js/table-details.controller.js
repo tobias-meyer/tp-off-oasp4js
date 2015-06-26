@@ -1,8 +1,12 @@
 angular.module('app.table-mgmt').controller('TableDetailsCntl',
-    function ($scope, $sce, tableDetails, allOffers, currentOrder, sales, globalSpinner, positionStateNotification) {
+    function ($scope, $sce, tableDetails, allOffers, allSpecials, currentOrder, sales, globalSpinner, positionStateNotification) {
         'use strict';
         $scope.table = tableDetails;
         $scope.allOffers = allOffers;
+        $scope.allSpecials = allSpecials;
+		
+		console.log("All Specials: " +JSON.stringify(allSpecials));
+		
         $scope.model = {};
         $scope.model.order = currentOrder;
         $scope.model.selected = allOffers.length ? allOffers[0] : undefined;

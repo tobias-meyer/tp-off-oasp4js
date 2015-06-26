@@ -83,6 +83,14 @@ angular.module('app.special-mgmt').factory('specials',
 					return specialAsList[0];
 				});
 			},
+			loadAllSpecials: function () {
+				var self = this;
+								
+				return specialManagementRestService.getAllSpecials().then(function (response) {
+					return self.addOffers(response.data);
+				});
+			},
+
 		};
 	}
 
