@@ -2,10 +2,24 @@ angular.module('app.table-mgmt').controller('TableDetailsCntl',
     function ($scope, $sce, tableDetails, allOffers, allSpecials, currentOrder, sales, globalSpinner, positionStateNotification) {
         'use strict';
         $scope.table = tableDetails;
+
+		console.log("All Offers: " +JSON.stringify(allOffers));
         $scope.allOffers = allOffers;
-        $scope.allSpecials = allSpecials;
+		
 		
 		console.log("All Specials: " +JSON.stringify(allSpecials));
+        $scope.activeSpecialsByOrderId = {};
+		allSpecials.forEach(function (special) {
+			if(special.activeStatus === 'Active') {
+				// TODO: technically there might be more than one active special
+				$scope.activeSpecialsByOrderId[special.offerId] = special;
+			}
+		});
+		console.log("Active Specials filtered: " +JSON.stringify($scope.activeSpecialsByOrderId));
+				
+		
+		
+		
 		
         $scope.model = {};
         $scope.model.order = currentOrder;
