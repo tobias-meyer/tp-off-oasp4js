@@ -20,7 +20,6 @@ angular.module('app.special-mgmt')
 				specialDetails: function () {
 					if (specialRow) {
 						var loadedSpecial = specials.loadSpecial(specialRow.id);
-						console.log("Loaded Special: " + JSON.stringify(loadedSpecial));
 						return loadedSpecial;
 					} else {
 						// create

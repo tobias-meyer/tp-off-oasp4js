@@ -27,8 +27,7 @@ angular.module('app.special-mgmt').factory('specials',
 					function (allOffers) {
 						paginatedSpecialList = paginatedSpecialList.map(function (current) {
 							var allOffersFiltered = allOffers.filter(function (offer) { 
-								// TODO use id instead of description
-								return offer.description === current.offerId;
+								return offer.id === current.offerId;
 							});
 							var offer = allOffersFiltered.length > 0 ? allOffersFiltered[0] : null;
 
