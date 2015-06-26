@@ -67,23 +67,16 @@ angular.module('app.special-mgmt').factory('specials',
 				});
 			},
 			submitSpecial: function (special) {
-				if (special.id) {
-					return specialManagementRestService.saveSpecial(special).then(function (response) {
-						// TODO check status and display confirmation or error
-					});
-				} else {
-					// TODO how to determine id?
-					return specialManagementRestService.createSpecial(4711, special).then(function (response) {
-						// TODO check status and display confirmation or error
-					});
-				}
+				return specialManagementRestService.saveSpecial(special).then(function (response) {
+					// TODO check status and display confirmation or error
+				});
 			},
 			loadSpecial: function (specialId) {
 				var self = this;
 
 				return specialManagementRestService.getSpecial(specialId).
 					then(function (response) {
-						// wrap in list
+					// wrap in list
 					return self.addOffers([response.data]);
 				}).then(function (specialAsList) {
 					// unwrap list
