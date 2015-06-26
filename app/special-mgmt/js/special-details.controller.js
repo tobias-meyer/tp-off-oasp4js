@@ -4,8 +4,7 @@ angular.module('app.special-mgmt').controller('SpecialDetailsCntl',
         $scope.special = specialDetails;
         $scope.allOffers = allOffers;
 		var allOffersFiltered = allOffers.filter(function(offer) { 
-			// TODO also check for id
-			return offer.description === $scope.special.specialOffer; 
+			return offer.id === $scope.special.offerId; 
 		});
         $scope.selectedOffer = allOffersFiltered.length > 0 ? allOffersFiltered[0] : null;
 		

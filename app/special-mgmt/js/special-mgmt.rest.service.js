@@ -16,7 +16,7 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 			"revision": null,
 			"number": 1,
 			"specialName": "Happy Hour",
-			"offerId": "Cola",
+			"offerId": 5, // "Cola"
 			"specialPrice": 0.99,
 			"activeFrom": new Date(1970, 0, 1, 19, 0, 0),
 			"activeTo": new Date(1970, 0, 1, 21, 0, 0),
@@ -27,7 +27,7 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 			"revision": null,
 			"number": 2,
 			"specialName": "Midnight Deals",
-			"offerId": "Cola",
+			"offerId": 5, // "Cola"
 			"specialPrice": 0.99,
 			"activeFrom": new Date(1970, 0, 1, 23, 0, 0),
 			"activeTo": new Date(1970, 0, 1, 3, 0, 0),
@@ -38,7 +38,7 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 			"revision": null,
 			"number": 3,
 			"specialName": "Mittagstisch",
-			"offerId": "Schnitzel-Menü",
+			"offerId": 1, // "Schnitzel-Menü"
 			"specialPrice": 6.95,
 			"activeFrom": new Date(1970, 0, 1, 12, 0, 0),
 			"activeTo": new Date(1970, 0, 1, 14, 0, 0),
@@ -49,7 +49,7 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 			"revision": null,
 			"number": 4,
 			"specialName": "Early Bird",
-			"offerId": "Pfifferlinge-Menü",
+			"offerId": 3, // "Pfifferlinge-Menü"
 			"specialPrice": 18.99,
 			"activeFrom": new Date(1970, 0, 1, 6, 0, 0),
 			"activeTo": new Date(1970, 0, 1, 7, 0, 0),
@@ -60,7 +60,7 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 			"revision": null,
 			"number": 4,
 			"specialName": "Simply Always",
-			"offerId": "Pfifferlinge-Menü",
+			"offerId": 3, // "Pfifferlinge-Menü"
 			"specialPrice": 7.99,
 			"activeFrom": new Date(1970, 0, 1, 0, 0, 0),
 			"activeTo": new Date(1970, 0, 1, 23, 0, 0),
