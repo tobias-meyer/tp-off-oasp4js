@@ -22,8 +22,8 @@ angular.module('app.special-mgmt').controller('SpecialDetailsCntl',
 				// map weekly period
 				$scope.special.activePeriod.startingDay = $scope.special.activeStartingDay;
 				$scope.special.activePeriod.endingDay = $scope.special.activeEndingDay;
-				$scope.special.activePeriod.startingHour = $scope.special.activeStartingTime.getHour();
-				$scope.special.activePeriod.endingHour = $scope.special.activeStartingTime.getHour();
+				$scope.special.activePeriod.startingHour = $scope.special.activeStartingTime.getHours();
+				$scope.special.activePeriod.endingHour = $scope.special.activeStartingTime.getHours();
 				
                 return specials.submitSpecial($scope.special);
             }).then(function () {
