@@ -23,7 +23,8 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 				endingDay : 7, // Sunday
 				startingHour : 19,
 				endingHour : 21
-			}
+			}, 
+			activeStatus: 'Inactive'
 		},
 		{
 			"id": 102,
@@ -38,7 +39,8 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 				endingDay : 7, // Sunday
 				startingHour : 23,
 				endingHour : 3
-			}
+			}, 
+			activeStatus : 'Inactive'
 		},
 		{
 			"id": 103,
@@ -53,7 +55,8 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 				endingDay : 7, // Sunday
 				startingHour : 12,
 				endingHour : 14
-			}
+			}, 
+			activeStatus : 'Inactive'
 		},
 		{
 			"id": 104,
@@ -68,7 +71,8 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 				endingDay : 7, // Sunday
 				startingHour : 6,
 				endingHour : 7
-			}
+			}, 
+			activeStatus : 'Inactive'
 		},
 		{
 			"id": 105,
@@ -84,7 +88,8 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 				endingDay : 7, // Sunday
 				startingHour : 0,
 				endingHour : 23
-			}
+			}, 
+			activeStatus : 'Active'
 		}
 	];
 
