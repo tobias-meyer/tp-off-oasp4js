@@ -20,8 +20,8 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 			"specialPrice": 0.99,
 			activePeriod : {
 				startingDay : 'Monday',
-				startingHour : 'Sunday',
-				endingDay : 19,
+				endingDay : 'Sunday',
+				startingHour : 19,
 				endingHour : 21
 			}
 		},
@@ -35,8 +35,8 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 			"specialPrice": 0.99,
 			activePeriod : {
 				startingDay : 'Monday',
-				startingHour : 'Sunday',
-				endingDay : 23,
+				endingDay : 'Sunday',
+				startingHour : 23,
 				endingHour : 3
 			}
 		},
@@ -50,8 +50,8 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 			"specialPrice": 6.95,
 			activePeriod : {
 				startingDay : 'Monday',
-				startingHour : 'Sunday',
-				endingDay : 12,
+				endingDay : 'Sunday',
+				startingHour : 12,
 				endingHour : 14
 			}
 		},
@@ -65,8 +65,8 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 			"specialPrice": 18.99,
 			activePeriod : {
 				startingDay : 'Monday',
-				startingHour : 'Sunday',
-				endingDay : 6,
+				endingDay : 'Sunday',
+				startingHour : 6,
 				endingHour : 7
 			}
 		},
@@ -81,8 +81,8 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 			"activeTo": new Date(1970, 0, 1, 23, 0, 0),
 			activePeriod : {
 				startingDay : 'Monday',
-				startingHour : 'Sunday',
-				endingDay : 0,
+				endingDay : 'Sunday',
+				startingHour : 0,
 				endingHour : 23
 			}
 		}

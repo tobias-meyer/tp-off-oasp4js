@@ -31,8 +31,8 @@ angular.module('app.special-mgmt').factory('specials',
 							// map weekly period
 							current.activeStartingDay = current.activePeriod.startingDay;;
 							current.activeEndingDay = current.activePeriod.endingDay;
-							current.activeStartingTime = new Date(1970, 0, 1, 0, current.activePeriod.startingHour, 0);
-							current.activeEndingTime = new Date(1970, 0, 1, 0, current.activePeriod.endingHour, 0);
+							current.activeStartingTime = new Date(1970, 0, 1, current.activePeriod.startingHour, 0, 0);
+							current.activeEndingTime = new Date(1970, 0, 1, current.activePeriod.endingHour, 0 ,0);
 							return current;
 						});
 
