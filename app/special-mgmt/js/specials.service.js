@@ -9,18 +9,7 @@ angular.module('app.special-mgmt').factory('specials',
 		var paginatedSpecials = {};
 
 		return {
-			isActive: function (special) {
-				var now = new Date();
-				if (special.activeFrom < special.activeTo) {
-					return now.getHours() > special.activeFrom.getHours() && now.getHours() < special.activeTo.getHours();
-				} else {
-					// around midnight
-					return now.getHours() > special.activeFrom.getHours() || now.getHours() < special.activeTo.getHours();
-				}
-			},
 			addOffers: function (paginatedSpecialList) {
-				var self = this;
-
 				var result = offers
 					.loadAllOffers()
 					.then(
@@ -39,7 +28,11 @@ angular.module('app.special-mgmt').factory('specials',
 								current.savingsPercentage = ((current.savings / current.originalPrice) * 100).toFixed(0) + " %";
 							}
 
-							current.activeStatus = self.isActive(current) ? "Active" : "Inactive";
+							// map weekly period
+							current.activeStartingDay = current.activePeriod.startingDay;;
+							current.activeEndingDay = current.activePeriod.endingDay;
+							current.activeStartingTime = new Date(1970, 0, 1, 0, current.activePeriod.startingHour, 0);
+							current.activeEndingTime = new Date(1970, 0, 1, 0, current.activePeriod.endingHour, 0);
 							return current;
 						});
 

@@ -18,6 +18,13 @@ angular.module('app.special-mgmt').controller('SpecialDetailsCntl',
         $scope.submit = function () {
             globalSpinner.decorateCallOfFunctionReturningPromise(function () {
 				console.log("Saving special: " +JSON.stringify($scope.special));
+				
+				// map weekly period
+				$scope.special.activePeriod.startingDay = $scope.special.activeStartingDay;
+				$scope.special.activePeriod.endingDay = $scope.special.activeEndingDay;
+				$scope.special.activePeriod.startingHour = $scope.special.activeStartingTime.getHour();
+				$scope.special.activePeriod.endingHour = $scope.special.activeStartingTime.getHour();
+				
                 return specials.submitSpecial($scope.special);
             }).then(function () {
                 $scope.$close();

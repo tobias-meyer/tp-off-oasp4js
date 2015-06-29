@@ -31,8 +31,12 @@ angular.module('app.special-mgmt')
 							"specialName": null,
 							"offerId": null,
 							"specialPrice": null,
-							"activeFrom": null,
-							"activeTo": null,
+							"activePeriod": {
+								startingDay : null,
+								startingHour : null,
+								endingDay : null,
+								endingHour : null
+							}
 						}
 					}
 				},
