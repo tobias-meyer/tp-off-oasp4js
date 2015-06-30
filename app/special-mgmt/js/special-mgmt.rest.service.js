@@ -20,11 +20,10 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 			"specialPrice": 0.99,
 			activePeriod : {
 				startingDay : 1, // Monday
-				endingDay : 7, // Sunday
+				endingDay : 1, // Monday
 				startingHour : 19,
 				endingHour : 21
 			}, 
-			activeStatus: 'Inactive'
 		},
 		{
 			"id": 102,
@@ -35,12 +34,11 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 			"offerId": 5, // "Cola"
 			"specialPrice": 0.99,
 			activePeriod : {
-				startingDay : 1, // Monday
+				startingDay : 2, // Tuesday
 				endingDay : 7, // Sunday
 				startingHour : 23,
 				endingHour : 3
 			}, 
-			activeStatus : 'Inactive'
 		},
 		{
 			"id": 103,
@@ -51,12 +49,11 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 			"offerId": 1, // "Schnitzel-Menü"
 			"specialPrice": 6.95,
 			activePeriod : {
-				startingDay : 1, // Monday
+				startingDay : 3, // Wednesday
 				endingDay : 7, // Sunday
 				startingHour : 12,
 				endingHour : 14
 			}, 
-			activeStatus : 'Inactive'
 		},
 		{
 			"id": 104,
@@ -72,7 +69,6 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 				startingHour : 6,
 				endingHour : 7
 			}, 
-			activeStatus : 'Inactive'
 		},
 		{
 			"id": 105,
@@ -89,7 +85,6 @@ angular.module('app.special-mgmt').factory('specialManagementRestService', funct
 				startingHour : 0,
 				endingHour : 23
 			}, 
-			activeStatus : 'Active'
 		}
 	];
 
