@@ -10,13 +10,35 @@ angular.module('app.special-mgmt').factory('specials',
 
 		return {
 			isActive: function (special) {
+				console.log("Is Special Active?: " + JSON.stringify(special));
+
 				var now = new Date();
-				if (special.activeFrom < special.activeTo) {
-					return now.getHours() > special.activeFrom.getHours() && now.getHours() < special.activeTo.getHours();
+
+				var dayOfWeek = now.getDay();
+				// map from javascript (sunday = 0) to java (sunday = 7)
+				var dayOfWeekCorrected = dayOfWeek === 0 ? 7 : dayOfWeek;
+
+				var isActiveDay = false;
+				if (special.activePeriod.startingDay <= special.activePeriod.endingDay) {
+					isActiveDay = dayOfWeekCorrected >= special.activePeriod.startingDay && dayOfWeekCorrected <= special.activePeriod.endingDay;
+				} else {
+					// around weekend
+					isActiveDay = dayOfWeekCorrected >= special.activePeriod.startingDay || dayOfWeekCorrected <= special.activePeriod.endingDay;
+				}
+				console.log("Is Active Day: " + isActiveDay);
+
+				var isActiveHour = false;
+				if (special.activePeriod.startingHour < special.activePeriod.endingHour) {
+					isActiveHour = now.getHours() >= special.activePeriod.startingHour && now.getHours() < special.activePeriod.endingHour;
 				} else {
 					// around midnight
-					return now.getHours() > special.activeFrom.getHours() || now.getHours() < special.activeTo.getHours();
+					isActiveHour = now.getHours() >= special.activePeriod.startingHour || now.getHours() < special.activePeriod.endingHour;
 				}
+				console.log("Is Active Hour: " + isActiveHour);
+
+				console.log("Is Active: " + isActiveDay && isActiveHour);
+				return isActiveDay && isActiveHour;
+
 			},
 			addOffers: function (paginatedSpecialList) {
 				var self = this;
@@ -26,9 +48,8 @@ angular.module('app.special-mgmt').factory('specials',
 					.then(
 					function (allOffers) {
 						paginatedSpecialList = paginatedSpecialList.map(function (current) {
-							var allOffersFiltered = allOffers.filter(function (offer) { 
-								// TODO use id instead of description
-								return offer.description === current.offerId;
+							var allOffersFiltered = allOffers.filter(function (offer) {
+								return offer.id === current.offerId;
 							});
 							var offer = allOffersFiltered.length > 0 ? allOffersFiltered[0] : null;
 
@@ -40,7 +61,15 @@ angular.module('app.special-mgmt').factory('specials',
 								current.savingsPercentage = ((current.savings / current.originalPrice) * 100).toFixed(0) + " %";
 							}
 
+							// map weekly period
+							current.activeStartingDay = current.activePeriod.startingDay;;
+							current.activeEndingDay = current.activePeriod.endingDay;
+							current.activeStartingTime = new Date(1970, 0, 1, current.activePeriod.startingHour, 0, 0);
+							current.activeEndingTime = new Date(1970, 0, 1, current.activePeriod.endingHour, 0, 0);
+
+							// calculate status
 							current.activeStatus = self.isActive(current) ? "Active" : "Inactive";
+
 							return current;
 						});
 
@@ -83,6 +112,14 @@ angular.module('app.special-mgmt').factory('specials',
 					return specialAsList[0];
 				});
 			},
+			loadAllSpecials: function () {
+				var self = this;
+
+				return specialManagementRestService.getAllSpecials().then(function (response) {
+					return self.addOffers(response.data);
+				});
+			},
+
 		};
 	}
 
