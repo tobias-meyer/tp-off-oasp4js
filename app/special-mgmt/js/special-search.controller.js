@@ -24,11 +24,7 @@ angular.module('app.special-mgmt')
 					} else {
 						// create
 						return {
-							"id": null,
-							"modificationCounter": null,
-							"revision": null,
-							"number": null,
-							"specialName": null,
+							"name": null,
 							"offerId": null,
 							"specialPrice": null,
 							"activePeriod": {

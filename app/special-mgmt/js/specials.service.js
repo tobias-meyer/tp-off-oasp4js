@@ -61,12 +61,6 @@ angular.module('app.special-mgmt').factory('specials',
 								current.savingsPercentage = ((current.savings / current.originalPrice) * 100).toFixed(0) + " %";
 							}
 
-							// map weekly period
-							current.activeStartingDay = current.activePeriod.startingDay;;
-							current.activeEndingDay = current.activePeriod.endingDay;
-							current.activeStartingTime = new Date(1970, 0, 1, current.activePeriod.startingHour, 0, 0);
-							current.activeEndingTime = new Date(1970, 0, 1, current.activePeriod.endingHour, 0, 0);
-
 							// calculate status
 							current.activeStatus = self.isActive(current) ? "Active" : "Inactive";
 
@@ -81,8 +75,13 @@ angular.module('app.special-mgmt').factory('specials',
 			},
 			getPaginatedSpecials: function (pagenumber, pagesize) {
 				var self = this;
-
-				return specialManagementRestService.getPaginatedSpecials(pagenumber, pagesize).then(function (response) {
+                var searchCriteria = {
+                    pagination: {
+                        page: pagenumber,
+                        total: true
+                    }
+                };
+				return specialManagementRestService.getPaginatedSpecials(searchCriteria).then(function (response) {
 					angular.copy(response.data, paginatedSpecials);
 					return self.addOffers(paginatedSpecials.result).then(function (amendedSpecials) {
 						paginatedSpecials.result = amendedSpecials;
@@ -97,7 +96,7 @@ angular.module('app.special-mgmt').factory('specials',
 			},
 			submitSpecial: function (special) {
 				return specialManagementRestService.saveSpecial(special).then(function (response) {
-					// TODO check status and display confirmation or error
+					return response.data;
 				});
 			},
 			loadSpecial: function (specialId) {

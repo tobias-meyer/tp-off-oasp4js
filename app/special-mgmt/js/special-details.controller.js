@@ -18,13 +18,8 @@ angular.module('app.special-mgmt').controller('SpecialDetailsCntl',
         $scope.submit = function () {
             globalSpinner.decorateCallOfFunctionReturningPromise(function () {
 				console.log("Saving special: " +JSON.stringify($scope.special));
-				
-				// map weekly period
-				$scope.special.activePeriod.startingDay = $scope.special.activeStartingDay;
-				$scope.special.activePeriod.endingDay = $scope.special.activeEndingDay;
-				$scope.special.activePeriod.startingHour = $scope.special.activeStartingTime.getHours();
-				$scope.special.activePeriod.endingHour = $scope.special.activeStartingTime.getHours();
-				
+                $scope.special.activePeriod.endingDay=parseInt($scope.special.activePeriod.endingDay);
+                $scope.special.activePeriod.startingDay=parseInt($scope.special.activePeriod.startingDay);
                 return specials.submitSpecial($scope.special);
             }).then(function () {
                 $scope.$close();
@@ -34,6 +29,5 @@ angular.module('app.special-mgmt').controller('SpecialDetailsCntl',
 		$scope.selectOffer = function (item, model) {
 			$scope.selectedOffer = item;
 			$scope.special.offerId = item.id;
-			$scope.special.specialOffer = item.description;
 		};
     });
