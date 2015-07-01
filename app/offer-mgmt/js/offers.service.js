@@ -13,21 +13,48 @@ angular.module('app.offer-mgmt').factory('offers', function (offerManagementRest
                 return response.data;
             });
         },
+        convertDayOfWeekToJsDateInt: function (dayOfWeek) {
+            var day;
+            switch (dayOfWeek) {
+                case "SUNDAY":
+                    day = 0;
+                    break;
+                case "MONDAY":
+                    day = 1;
+                    break;
+                case "TUESDAY":
+                    day = 2;
+                    break;
+                case "WEDNESDAY":
+                    day = 3;
+                    break;
+                case "THURSDAY":
+                    day = 4;
+                    break;
+                case "FRIDAY":
+                    day = 5;
+                    break;
+                case "SATURDAY":
+                    day = 6;
+                    break;
+            }
+            return day;
+        },        
         isSpecialActive: function (special) {
 				console.log("Is Special Active?: " + JSON.stringify(special));
+                var self = this;
 
 				var now = new Date();
-
 				var dayOfWeek = now.getDay();
-				// map from javascript (sunday = 0) to java (sunday = 7)
-				var dayOfWeekCorrected = dayOfWeek === 0 ? 7 : dayOfWeek;
+                var startingDay = self.convertDayOfWeekToJsDateInt(special.activePeriod.startingDay);
+                var endingDay = self.convertDayOfWeekToJsDateInt(special.activePeriod.endingDay);
 
 				var isActiveDay = false;
 				if (special.activePeriod.startingDay <= special.activePeriod.endingDay) {
-					isActiveDay = dayOfWeekCorrected >= special.activePeriod.startingDay && dayOfWeekCorrected <= special.activePeriod.endingDay;
+					isActiveDay = dayOfWeek >= startingDay && dayOfWeek <= endingDay;
 				} else {
 					// around weekend
-					isActiveDay = dayOfWeekCorrected >= special.activePeriod.startingDay || dayOfWeekCorrected <= special.activePeriod.endingDay;
+					isActiveDay = dayOfWeek >= startingDay || dayOfWeek <= endingDay;
 				}
 				console.log("Is Active Day: " + isActiveDay);
 

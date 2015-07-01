@@ -18,8 +18,8 @@ angular.module('app.offer-mgmt').controller('SpecialDetailsCntl',
         $scope.submit = function () {
             globalSpinner.decorateCallOfFunctionReturningPromise(function () {
 				console.log("Saving special: " +JSON.stringify($scope.special));
-                $scope.special.activePeriod.endingDay = parseInt($scope.special.activePeriod.endingDay);
-                $scope.special.activePeriod.startingDay = parseInt($scope.special.activePeriod.startingDay);
+                $scope.special.activePeriod.endingDay = $scope.special.activePeriod.endingDay;
+                $scope.special.activePeriod.startingDay = $scope.special.activePeriod.startingDay;
                 return offers.submitSpecial($scope.special);
             }).then(function () {
                 $scope.$close();
