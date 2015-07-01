@@ -1,4 +1,4 @@
-angular.module('app.special-mgmt')
+angular.module('app.offer-mgmt')
     .filter('dateToTime', function () {
         'use strict';
         return function (item) {

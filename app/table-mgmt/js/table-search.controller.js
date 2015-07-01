@@ -1,5 +1,5 @@
 angular.module('app.table-mgmt')
-    .controller('TableSearchCntl', function ($scope, tables, paginatedTableList, $modal, globalSpinner, offers, sales, specials) {
+    .controller('TableSearchCntl', function ($scope, tables, paginatedTableList, $modal, globalSpinner, offers, sales) {
         'use strict';
         var selectedTable = function () {
             return $scope.selectedItems && $scope.selectedItems.length ? $scope.selectedItems[0] : undefined;
@@ -17,7 +17,7 @@ angular.module('app.table-mgmt')
                         return offers.loadAllOffers();
                     },
                     allSpecials: function () {
-                        return specials.loadAllSpecials();
+                        return offers.loadAllSpecials();
                     },
                     currentOrder: function () {
                         return sales.loadOrderForTable(tableRow.id);

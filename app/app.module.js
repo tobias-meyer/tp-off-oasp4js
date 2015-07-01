@@ -1,5 +1,5 @@
 angular.module('app',
-    ['ui.select', 'ngRoute', 'app.main', 'app.table-mgmt', 'app.offer-mgmt', 'app.sales-mgmt', 'app.special-mgmt'])
+    ['ui.select', 'ngRoute', 'app.main', 'app.table-mgmt', 'app.offer-mgmt', 'app.sales-mgmt'])
     .config(function ($locationProvider, uiSelectConfig) {
         'use strict';
         $locationProvider.html5Mode(false);

@@ -1,7 +1,7 @@
 // Visual Studio Code Typings and autocompletion
 /// <reference path="../../../typings/angularjs/angular.d.ts"/>
-angular.module('app.special-mgmt')
-    .controller('SpecialSearchCntl', function ($scope, $modal, globalSpinner, specials, paginatedSpecialList, offers, appContext) {
+angular.module('app.offer-mgmt')
+    .controller('SpecialSearchCntl', function ($scope, $modal, globalSpinner, paginatedSpecialList, offers, appContext) {
 	'use strict';
 
 	appContext.getCurrentUser().then(function (currentUser) {
@@ -14,12 +14,12 @@ angular.module('app.special-mgmt')
 
 	$scope.openEditDialog = function (specialRow) {
 		$modal.open({
-			templateUrl: 'special-mgmt/html/special-details.html',
+			templateUrl: 'offer-mgmt/html/special-details.html',
 			controller: 'SpecialDetailsCntl',
 			resolve: {
 				specialDetails: function () {
 					if (specialRow) {
-						var loadedSpecial = specials.loadSpecial(specialRow.id);
+						var loadedSpecial = offers.loadSpecial(specialRow.id);
 						return loadedSpecial;
 					} else {
 						// create
@@ -65,7 +65,7 @@ angular.module('app.special-mgmt')
 
 
 	$scope.reloadSpecials = function () {
-		specials.getPaginatedSpecials($scope.currentPage, $scope.numPerPage).then(function (paginatedSpecials) {
+		offers.getPaginatedSpecials($scope.currentPage, $scope.numPerPage).then(function (paginatedSpecials) {
 			return paginatedSpecials;
 		}).then(function (res) {
 			paginatedSpecialList = res;
@@ -99,7 +99,7 @@ angular.module('app.special-mgmt')
 		{
 			label: 'Delete Special',
 			onClick: function () {
-				specials.deleteSpecial(selectedSpecial().id).then(function () {
+				offers.deleteSpecial(selectedSpecial().id).then(function () {
                     $scope.reloadSpecials();
                 });
 			},
