@@ -47,7 +47,9 @@ angular.module('app.special-mgmt')
 						);
 				},
 			}
-		});
+		}).result.finally(function () {
+            $scope.reloadSpecials();
+        });
 	};
 
 	$scope.selectedItems = [];
@@ -97,8 +99,9 @@ angular.module('app.special-mgmt')
 		{
 			label: 'Delete Special',
 			onClick: function () {
-				specials.deleteSpecial(selectedSpecial().id);
-				$scope.reloadSpecials();
+				specials.deleteSpecial(selectedSpecial().id).then(function () {
+                    $scope.reloadSpecials();
+                });
 			},
 			isActive: function () {
 				return selectedSpecial();
