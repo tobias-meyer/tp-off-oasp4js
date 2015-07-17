@@ -1,0 +1,244 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\TP\\devonfw\\software\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\TP\\devonfw\\software\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install' ]
+2 info using npm@1.4.23
+3 info using node@v0.10.31
+4 verbose node symlink C:\TP\devonfw\software\nodejs\\node.exe
+5 warn package.json oasp-js-sample@0.0.1 No repository field.
+6 verbose readDependencies using package.json deps
+7 verbose install where, deps [ 'C:\\TP\\devonfw\\workspaces\\main\\tp-off-oasp4js',
+7 verbose install   [ 'connect',
+7 verbose install     'browser-sync',
+7 verbose install     'chalk',
+7 verbose install     'coveralls',
+7 verbose install     'del',
+7 verbose install     'gulp',
+7 verbose install     'gulp-concat',
+7 verbose install     'gulp-filter',
+7 verbose install     'gulp-flatten',
+7 verbose install     'gulp-git',
+7 verbose install     'gulp-if',
+7 verbose install     'gulp-imagemin',
+7 verbose install     'gulp-inject',
+7 verbose install     'gulp-insert',
+7 verbose install     'gulp-jshint',
+7 verbose install     'gulp-karma',
+7 verbose install     'gulp-less',
+7 verbose install     'gulp-load-plugins',
+7 verbose install     'gulp-minify-css',
+7 verbose install     'gulp-minify-html',
+7 verbose install     'gulp-newer',
+7 verbose install     'gulp-ng-annotate',
+7 verbose install     'gulp-ng-templates',
+7 verbose install     'gulp-processhtml',
+7 verbose install     'gulp-protractor',
+7 verbose install     'gulp-replace',
+7 verbose install     'gulp-rev',
+7 verbose install     'gulp-size',
+7 verbose install     'gulp-sonar',
+7 verbose install     'gulp-sourcemaps',
+7 verbose install     'gulp-sync',
+7 verbose install     'gulp-uglify',
+7 verbose install     'gulp-usemin',
+7 verbose install     'gulp-util',
+7 verbose install     'gulp.spritesmith',
+7 verbose install     'http-proxy',
+7 verbose install     'jshint-stylish',
+7 verbose install     'karma-chrome-launcher',
+7 verbose install     'karma-coverage',
+7 verbose install     'karma-jasmine',
+7 verbose install     'karma-junit-reporter',
+7 verbose install     'karma-phantomjs-launcher',
+7 verbose install     'lodash',
+7 verbose install     'main-bower-files',
+7 verbose install     'protractor',
+7 verbose install     'require-dir',
+7 verbose install     'string',
+7 verbose install     'through2',
+7 verbose install     'uglify-save-license',
+7 verbose install     'wiredep',
+7 verbose install     'yargs' ] ]
+8 info preinstall oasp-js-sample@0.0.1
+9 warn package.json karma-coverage@0.2.6 No README data
+10 warn package.json karma-phantomjs-launcher@0.1.4 No README data
+11 verbose readDependencies using package.json deps
+12 verbose already installed skipping connect@3.3.3 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+13 verbose already installed skipping browser-sync@~1.8.1 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+14 verbose already installed skipping chalk@~0.5.1 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+15 verbose already installed skipping coveralls@^2.11.2 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+16 verbose already installed skipping del@^1.1.1 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+17 verbose already installed skipping gulp@~3.9.0 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+18 verbose already installed skipping gulp-concat@^2.4.2 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+19 verbose already installed skipping gulp-filter@~1.0.2 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+20 verbose already installed skipping gulp-flatten@~0.0.4 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+21 verbose already installed skipping gulp-git@^0.5.6 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+22 verbose already installed skipping gulp-if@^1.2.5 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+23 verbose already installed skipping gulp-imagemin@~2.0.0 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+24 verbose already installed skipping gulp-inject@~1.0.2 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+25 verbose already installed skipping gulp-insert@0.4.0 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+26 verbose already installed skipping gulp-jshint@~1.9.0 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+27 verbose already installed skipping gulp-karma@~0.0.4 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+28 verbose already installed skipping gulp-less@~1.3.6 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+29 verbose already installed skipping gulp-load-plugins@~0.7.1 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+30 verbose already installed skipping gulp-minify-css@^0.3.11 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+31 verbose already installed skipping gulp-minify-html@~0.1.7 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+32 verbose already installed skipping gulp-newer@^0.5.0 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+33 verbose already installed skipping gulp-ng-annotate@~0.5.2 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+34 verbose already installed skipping gulp-ng-templates@0.0.5 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+35 verbose already installed skipping gulp-processhtml@^1.0.2 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+36 verbose already installed skipping gulp-protractor@~0.0.11 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+37 verbose already installed skipping gulp-replace@~0.5.0 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+38 verbose already installed skipping gulp-rev@~2.0.1 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+39 verbose already installed skipping gulp-size@~1.1.0 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+40 verbose already installed skipping gulp-sonar@^1.0.3 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+41 verbose already installed skipping gulp-sourcemaps@^1.2.8 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+42 verbose already installed skipping gulp-sync@^0.1.4 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+43 verbose already installed skipping gulp-uglify@~1.0.1 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+44 verbose already installed skipping gulp-usemin@^0.3.8 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+45 verbose already installed skipping gulp-util@^3.0.1 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+46 verbose already installed skipping gulp.spritesmith@^2.4.0 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+47 verbose already installed skipping http-proxy@~1.7.0 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+48 verbose already installed skipping jshint-stylish@~1.0.0 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+49 verbose already installed skipping karma-chrome-launcher@^0.1.4 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+50 verbose already installed skipping karma-coverage@0.2.6 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+51 verbose already installed skipping karma-jasmine@~0.3.1 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+52 verbose already installed skipping karma-junit-reporter@~0.2.2 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+53 verbose already installed skipping karma-phantomjs-launcher@~0.1.4 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+54 verbose already installed skipping lodash@^3.0.0 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+55 verbose already installed skipping main-bower-files@~2.4.0 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+56 verbose already installed skipping protractor@~1.4.0 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+57 verbose already installed skipping require-dir@~0.1.0 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+58 verbose already installed skipping string@^3.0.0 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+59 verbose already installed skipping through2@~0.4.1 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+60 verbose already installed skipping uglify-save-license@~0.4.1 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+61 verbose already installed skipping wiredep@~2.2.0 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+62 verbose already installed skipping yargs@^1.3.3 C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+63 silly resolved []
+64 info build C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+65 verbose linkStuff [ false, false, false, 'C:\\TP\\devonfw\\workspaces\\main' ]
+66 info linkStuff oasp-js-sample@0.0.1
+67 verbose linkBins oasp-js-sample@0.0.1
+68 verbose linkMans oasp-js-sample@0.0.1
+69 verbose rebuildBundles oasp-js-sample@0.0.1
+70 verbose rebuildBundles [ '.bin',
+70 verbose rebuildBundles   'browser-sync',
+70 verbose rebuildBundles   'chalk',
+70 verbose rebuildBundles   'connect',
+70 verbose rebuildBundles   'coveralls',
+70 verbose rebuildBundles   'del',
+70 verbose rebuildBundles   'gulp',
+70 verbose rebuildBundles   'gulp-concat',
+70 verbose rebuildBundles   'gulp-filter',
+70 verbose rebuildBundles   'gulp-flatten',
+70 verbose rebuildBundles   'gulp-git',
+70 verbose rebuildBundles   'gulp-if',
+70 verbose rebuildBundles   'gulp-imagemin',
+70 verbose rebuildBundles   'gulp-inject',
+70 verbose rebuildBundles   'gulp-insert',
+70 verbose rebuildBundles   'gulp-jshint',
+70 verbose rebuildBundles   'gulp-karma',
+70 verbose rebuildBundles   'gulp-less',
+70 verbose rebuildBundles   'gulp-load-plugins',
+70 verbose rebuildBundles   'gulp-minify-css',
+70 verbose rebuildBundles   'gulp-minify-html',
+70 verbose rebuildBundles   'gulp-newer',
+70 verbose rebuildBundles   'gulp-ng-annotate',
+70 verbose rebuildBundles   'gulp-ng-templates',
+70 verbose rebuildBundles   'gulp-processhtml',
+70 verbose rebuildBundles   'gulp-protractor',
+70 verbose rebuildBundles   'gulp-replace',
+70 verbose rebuildBundles   'gulp-rev',
+70 verbose rebuildBundles   'gulp-size',
+70 verbose rebuildBundles   'gulp-sonar',
+70 verbose rebuildBundles   'gulp-sourcemaps',
+70 verbose rebuildBundles   'gulp-sync',
+70 verbose rebuildBundles   'gulp-uglify',
+70 verbose rebuildBundles   'gulp-usemin',
+70 verbose rebuildBundles   'gulp-util',
+70 verbose rebuildBundles   'gulp.spritesmith',
+70 verbose rebuildBundles   'http-proxy',
+70 verbose rebuildBundles   'jasmine-core',
+70 verbose rebuildBundles   'jshint-stylish',
+70 verbose rebuildBundles   'karma',
+70 verbose rebuildBundles   'karma-chrome-launcher',
+70 verbose rebuildBundles   'karma-coverage',
+70 verbose rebuildBundles   'karma-jasmine',
+70 verbose rebuildBundles   'karma-junit-reporter',
+70 verbose rebuildBundles   'karma-phantomjs-launcher',
+70 verbose rebuildBundles   'lodash',
+70 verbose rebuildBundles   'main-bower-files',
+70 verbose rebuildBundles   'protractor',
+70 verbose rebuildBundles   'require-dir',
+70 verbose rebuildBundles   'string',
+70 verbose rebuildBundles   'through2',
+70 verbose rebuildBundles   'uglify-save-license',
+70 verbose rebuildBundles   'wiredep',
+70 verbose rebuildBundles   'yargs' ]
+71 verbose rebuild bundle C:\TP\devonfw\workspaces\main\tp-off-oasp4js\node_modules\jasmine-core
+72 info build C:\TP\devonfw\workspaces\main\tp-off-oasp4js\node_modules\jasmine-core
+73 info preinstall jasmine-core@2.3.4
+74 verbose linkStuff [ false,
+74 verbose linkStuff   false,
+74 verbose linkStuff   false,
+74 verbose linkStuff   'C:\\TP\\devonfw\\workspaces\\main\\tp-off-oasp4js\\node_modules' ]
+75 info linkStuff jasmine-core@2.3.4
+76 verbose linkBins jasmine-core@2.3.4
+77 verbose linkMans jasmine-core@2.3.4
+78 verbose rebuildBundles jasmine-core@2.3.4
+79 info install jasmine-core@2.3.4
+80 info postinstall jasmine-core@2.3.4
+81 verbose rebuild bundle C:\TP\devonfw\workspaces\main\tp-off-oasp4js\node_modules\karma
+82 info build C:\TP\devonfw\workspaces\main\tp-off-oasp4js\node_modules\karma
+83 info preinstall karma@0.13.1
+84 verbose linkStuff [ false,
+84 verbose linkStuff   false,
+84 verbose linkStuff   false,
+84 verbose linkStuff   'C:\\TP\\devonfw\\workspaces\\main\\tp-off-oasp4js\\node_modules' ]
+85 info linkStuff karma@0.13.1
+86 verbose linkBins karma@0.13.1
+87 verbose link bins [ { karma: './bin/karma' },
+87 verbose link bins   'C:\\TP\\devonfw\\workspaces\\main\\tp-off-oasp4js\\node_modules\\.bin',
+87 verbose link bins   false ]
+88 verbose linkMans karma@0.13.1
+89 verbose rebuildBundles karma@0.13.1
+90 verbose rebuildBundles [ '.bin',
+90 verbose rebuildBundles   'bluebird',
+90 verbose rebuildBundles   'body-parser',
+90 verbose rebuildBundles   'chokidar',
+90 verbose rebuildBundles   'colors',
+90 verbose rebuildBundles   'connect',
+90 verbose rebuildBundles   'core-js',
+90 verbose rebuildBundles   'di',
+90 verbose rebuildBundles   'dom-serialize',
+90 verbose rebuildBundles   'expand-braces',
+90 verbose rebuildBundles   'glob',
+90 verbose rebuildBundles   'graceful-fs',
+90 verbose rebuildBundles   'http-proxy',
+90 verbose rebuildBundles   'log4js',
+90 verbose rebuildBundles   'memoizee',
+90 verbose rebuildBundles   'mime',
+90 verbose rebuildBundles   'minimatch',
+90 verbose rebuildBundles   'optimist',
+90 verbose rebuildBundles   'rimraf',
+90 verbose rebuildBundles   'socket.io',
+90 verbose rebuildBundles   'source-map',
+90 verbose rebuildBundles   'useragent' ]
+91 info install karma@0.13.1
+92 info postinstall karma@0.13.1
+93 info install oasp-js-sample@0.0.1
+94 info postinstall oasp-js-sample@0.0.1
+95 verbose unsafe-perm in lifecycle true
+96 info prepublish oasp-js-sample@0.0.1
+97 error peerinvalid The package karma does not satisfy its siblings' peerDependencies requirements!
+97 error peerinvalid Peer gulp-karma@0.0.4 wants karma@>=0.10 <=0.13
+97 error peerinvalid Peer karma-coverage@0.2.6 wants karma@>=0.9
+97 error peerinvalid Peer karma-junit-reporter@0.2.2 wants karma@>=0.9
+97 error peerinvalid Peer karma-phantomjs-launcher@0.1.4 wants karma@>=0.9
+98 error System Windows_NT 6.1.7601
+99 error command "C:\\TP\\devonfw\\software\\nodejs\\\\node.exe" "C:\\TP\\devonfw\\software\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install"
+100 error cwd C:\TP\devonfw\workspaces\main\tp-off-oasp4js
+101 error node -v v0.10.31
+102 error npm -v 1.4.23
+103 error code EPEERINVALID
+104 verbose exit [ 1, true ]

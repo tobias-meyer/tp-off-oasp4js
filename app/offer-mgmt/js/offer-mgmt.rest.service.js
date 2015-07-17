@@ -9,6 +9,16 @@ angular.module('app.offer-mgmt').factory('offerManagementRestService', function 
         },
         getAllProducts: function () {
             return $http.get(servicePath + '/product');
+        },
+        getPaginatedSpecials: function (pagenumber, pagesize) {
+            var specialSearchCriteria = {
+                pagination: {
+                    size: pagesize,
+                    page: pagenumber,
+                    total: true
+                }
+            };
+            return $http.post(servicePath + '/special/search', specialSearchCriteria);
         }
     };
 });
